@@ -19,7 +19,11 @@ module.exports = {
       {
         test: /\.html$/,
         loader: 'raw-loader!html-minify-loader',
-      }
+      },
+      {
+        test: /\.(scss|css)/,
+        loader: 'style-loader!css-loader!sass-loader'
+      },
     ]
   }
 };

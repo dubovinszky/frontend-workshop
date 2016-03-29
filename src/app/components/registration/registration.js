@@ -1,4 +1,5 @@
-var template = require('./registration.html');
+import template from './registration.html';
+import './registration.scss';
 
 export default {
   template,
