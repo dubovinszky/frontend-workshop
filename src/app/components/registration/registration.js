@@ -4,11 +4,13 @@ import './registration.scss';
 export default {
   template,
   controllerAs: 'vm',
-  controller: function() {
+  controller: function($http) {
     this.userData = {};
 
     this.register = () => {
-      console.log(this.userData);
+      $http
+        .post('/auth/register', this.userData)
+        .then(r => console.log('Error'));
     };
   }
 };

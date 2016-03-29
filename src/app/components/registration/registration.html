@@ -26,6 +26,14 @@
                    ng-model="vm.userData.email" />
         </div>
         <div class="form-group">
+            <label for="reg-password">Password</label>
+            <input type="password"
+                   required
+                   id="reg-password"
+                   class="form-control"
+                   ng-model="vm.userData.password" />
+        </div>
+        <div class="form-group">
             <button class="btn btn-primary"
                     ng-click="vm.register()">
                 Register
