@@ -1,0 +1,16 @@
+<div class="gameComponent">
+    <div ng-switch="vm.templateName">
+        <div ng-switch-when="instructions">
+            <ul>
+                <li>8 minumtes</li>
+                <li>Pay attention</li>
+            </ul>
+            <button class="btn btn-primary"
+                    ng-click="vm.startGame()">Start game
+                </button>
+        </div>
+        <div ng-switch-when="game">
+            <div id="gameContainer"></div>
+        </div>
+    </div>
+</div>

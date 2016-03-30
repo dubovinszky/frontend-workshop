@@ -7,5 +7,6 @@ export default {
     index: '/',
     registration: '/registration',
     game: '/game',
+    gameResult: '/game-result',
   }
 }

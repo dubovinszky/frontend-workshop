@@ -4,13 +4,13 @@ import './registration.scss';
 export default {
   template,
   controllerAs: 'vm',
-  controller: function(userService, $location, ROUTES) {
+  controller: function(userService, routingService, ROUTES) {
     this.userData = {};
 
     this.register = () => {
       userService
         .register(this.userData)
-        .then(() => $location.path(ROUTES.game));
+        .then(() => routingService.redirectToNextPath());
     };
   }
 };
