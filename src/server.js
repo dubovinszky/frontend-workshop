@@ -29,6 +29,20 @@ if(env === 'development') {
       return url.parse(req.url).path;
     }
   })));
+
+  // webpack config
+  const webpack = require('webpack');
+  const webpackDevMiddleware = require('webpack-dev-middleware');
+  const webpackConfig = require('../gulp/webpack.config');
+  const bundler = webpack(webpackConfig);
+  app.use(webpackDevMiddleware(bundler, {
+    publicPath: webpackConfig.output.publicPath,
+    stats: {
+      colors: false
+    }
+  }));
+  const webpackHotMiddleware = require('webpack-hot-middleware');
+  app.use(webpackHotMiddleware(bundler));
 }
 
 server.listen(8000, () => {console.log(`server is running on port: ${port}`)});

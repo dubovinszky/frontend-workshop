@@ -1,13 +1,21 @@
 'use strict';
 
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: path.join(__dirname, '../src/app/app.js'),
+  entry: {
+    app: [
+      'webpack-hot-middleware/client?reload=true',
+      path.join(__dirname, '../src/app/app.js'),
+    ]
+  },
   output: {
     path: path.join(__dirname, '../src/public/dist'),
+    publicPath: '/dist/',
     filename: 'app.js'
   },
+  devtool: 'cheap-module-eval-source-map',
   module: {
     loaders: [
       {
@@ -25,5 +33,9 @@ module.exports = {
         loader: 'style-loader!css-loader!sass-loader'
       },
     ]
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ]
 };
