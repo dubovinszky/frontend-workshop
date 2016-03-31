@@ -3,7 +3,7 @@ import template from './game.html';
 export default {
   template,
   controllerAs: 'vm',
-  controller: function gameController($window, $timeout, userService) {
+  controller: function gameController($window, $timeout, userService, routingService) {
       this.templateName = 'instructions';
 
       this.startGame = () => {
