@@ -12,11 +12,25 @@ class UserService {
       .post(this._apiRoutes.register, userData)
       .then(response => {
         if (response.data.success) {
-          this._userData = null;
-          this._userPromise = null;
+          this._clearData();
         }
       });
   }
+
+  _clearData() {
+    this._userData = null;
+    this._userPromise = null;
+  }
+
+  calculateGameResult(gameId) {
+  return this
+    ._$http
+    .post(this._apiRoutes.calculateGameResult, {game_id: gameId})
+    .then(response => {
+      this._clearData();
+      return response;
+    });
+}
 
   getData() {
     if (this._userData) {

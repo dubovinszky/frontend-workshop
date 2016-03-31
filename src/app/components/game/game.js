@@ -13,10 +13,19 @@ export default {
           .getData()
           .then(userData => {
             $timeout(() => {
+              const gameId = userData.user.pending_game_id;
               $window.startVirtuoso({
                 container: document.getElementById('gameContainer'),
-                gameId: userData.user.pending_game_id,
+                gameId,
                 registerEventUrl: '/game-backend/',
+                onGameStart() {
+                  console.log('Game start');
+                },
+                onGameEnd() {
+                  userService
+                    .calculateGameResult(gameId)
+                    .then(() => routingService.redirectToNextPath());
+                },
               })
             })
         });

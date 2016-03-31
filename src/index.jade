@@ -4,7 +4,7 @@ html(lang="en")
         meta(charset="utf-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width", initial-scale=1)
-        title="Lensa"
+        title="Frontend"
         link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", rel="stylesheet")
         link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css", rel="stylesheet")
     body(ng-app="frontendApp")
@@ -13,4 +13,8 @@ html(lang="en")
             div(ng-view)
         script(src="https://code.jquery.com/jquery-2.2.2.min.js")
         script(src="/games/virtuoso-desktop.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js")
+        script(src="/ui-kit/main.js")
+        script.
+            LensaUI.init();
         script(src="/dist/app.js")

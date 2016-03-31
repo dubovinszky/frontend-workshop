@@ -1,0 +1,6 @@
+{
+    "name": "game-result",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./game-result.js"
+}

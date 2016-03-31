@@ -6,6 +6,7 @@ import userService from './services/user-service';
 import routingService from './services/routing-service';
 import registrationComponent from './components/registration';
 import gameComponent from './components/game';
+import gameResultComponent from './components/game-result';
 
 angular
   .module('frontendApp', [
@@ -17,6 +18,7 @@ angular
   .service('userService', userService)
   .component('frontendRegistration', registrationComponent)
   .component('frontendGame', gameComponent)
+  .component('frontendGameResult', gameResultComponent)
   .config($routeProvider => {
     const R = appConfig.ROUTES;
 
@@ -28,11 +30,14 @@ angular
         template: '<frontend-game />',
       })
       .when(R.gameResult, {
-        template: '<div>Game result</div>',
+        template: '<frontend-game-result />',
       })
       .when(R.index, {
         template: '',
         controller: routingService => routingService.redirectToNextPath()
+      })
+      .otherwise({
+        redirectTo: R.index
       })
   })
   .run(() => {
